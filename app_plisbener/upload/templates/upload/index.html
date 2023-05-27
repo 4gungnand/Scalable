@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html> 
+    <head> 
+        <title> Upload Image </title>
+        <script src="https://cdn.tailwindcss.com"></script>    </head>
+    <body>
+        <div class="flex h-screen">
+            <div class="m-auto">
+                <h1 class="text-3xl"> <b>Upload Your Image</b> </h1>
+                <form method = "post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p }}
+                    <input type="submit" value=Submit>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
