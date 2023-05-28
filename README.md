@@ -1,17 +1,20 @@
 # Project Akhir Pengembangan Perangkat Lunak Scalable
 
-Nama Aplikasi: [NAMA]
+Nama Aplikasi: ImgSCC
 Nama Grup : SANtai Dulu
 
 ## Pendahuluan
 
-## Rencana
+ImgCCS adalah sebuah aplikasi web scalable yang dapat menerima upload berupa sebuah gambar dari user dan memprosesnya sesuai yang diinginkan oleh user. ImgCCS berfokus pada proses upscaling, cropping, dan converting dari sebuah gambar. ImgCCS tidak membutuhkan user untuk melakukan registrasi atau login menggunakan akun apapun.
 
-Bahasa: HTML & CSS (UI), Python (Apps)
-Load Balancer: AWS ELB (Elastic Load Balancer)
+## Teknologi
+
+UI: HTML & Tailwind CSS 
+Web app: Django
+Load Balancer: Celery
 Broker: RabbitMQ
 
-Fitur Aplikasi:
-1. Upscale and downscale gambar
-2. COnvert ke extension gambar lain
-3. Crop gambar
+Fitur Aplikasi ImgCCS:
+1. Cropping
+2. Converting
+3. Scaling
