@@ -12,6 +12,18 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+
+# Cloudinary config
+cloudinary.config(
+  cloud_name="prema-cloud",
+  api_key="679251123343278",
+  api_secret="oX215HNhR_urf8gi1-6vaNpSn1Y",
+  secure= True
+)
+
+import cloudinary.uploader
+import cloudinary.api
 
 # Celery settings
 BROKER_URL = os.environ.get('RABBITMQ_URL', 'amqp://guest:guest@localhost:5672/')
@@ -43,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [

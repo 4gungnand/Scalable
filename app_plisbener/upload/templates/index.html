@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<title>Upload Image</title>
+	<title>SCC APP</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -37,10 +40,10 @@
 						</script>
 					</div>
 					<div class="mb-4">
-						{{ form.img }}
+						{{ form.image }}
 						<p id="selected-file-name" class="mt-2 text-sm text-gray-500"></p>
 						<style>
-							input[name="img"]::-webkit-file-upload-button {
+							input[name="image"]::-webkit-file-upload-button {
 								width: 100%;
 								border: 1px solid #e0e0e0;
 								background-color: #ffffff;
@@ -55,17 +58,17 @@
 							}
 						</style>
 						<script>
-							const fileInput = document.querySelector('input[name="img"]');
+							const fileInput = document.querySelector('input[name="image"]');
 							const selectedFileName = document.getElementById('selected-file-name');
-					
+
 							fileInput.addEventListener('change', (event) => {
 								const fileName = event.target.files[0].name;
 								selectedFileName.textContent = fileName;
 							});
 						</script>
 					</div>
-					
-										
+
+
 					<button
 						class="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
 						Submit
@@ -73,6 +76,17 @@
 				</form>
 			</div>
 		</div>
+	</div>
+	<div class='flex'>
+		<!-- loop through all the images -->
+		{% for pic in photo %}		
+		<div class="max rounded overflow-hidden shadow-lg">
+			<img class="w-full" src="{{pic.image.url}}" alt="">
+			<div class="px-6 py-4">
+				<div class="font-bold text-xl mb-2">{{pic.title}}</div>
+			</div>
+		</div>
+		{% endfor %}
 	</div>
 </body>
 
