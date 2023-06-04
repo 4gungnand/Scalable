@@ -1,6 +1,6 @@
 # Project Akhir Pengembangan Perangkat Lunak Scalable
 
-Nama Aplikasi: ImgSCC
+Nama Aplikasi: ImgCCS
 Nama Grup : SANtai Dulu
 
 ## Pendahuluan
@@ -11,7 +11,6 @@ ImgCCS adalah sebuah aplikasi web scalable yang dapat menerima upload berupa seb
 
 UI: HTML & Tailwind CSS 
 Web app: Django
-Load Balancer: Celery
 Broker: RabbitMQ
 
 Fitur Aplikasi ImgCCS:
