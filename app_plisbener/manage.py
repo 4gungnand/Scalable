@@ -2,11 +2,13 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from celery import Celery
 
 
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app_plisbener.settings')
+    os.environ.setdefault('CELERY_LOADER', 'app_plisbener.celery')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

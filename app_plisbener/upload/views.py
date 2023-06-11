@@ -3,29 +3,22 @@ from .forms import GeeksForm
 from .models import photos
 from urllib.parse import urljoin
 from django.conf import settings
-import cloudinary
+from .tasks import process_uploaded_file
 import requests
+
 
 def index(request):
     context = {}
-
     if request.method == 'POST':
         form = GeeksForm(request.POST, request.FILES)
         if form.is_valid():
             title = form.cleaned_data['title']
             image = form.cleaned_data['image']
 
-            # Save the file with the desired title
-            uploaded_image = cloudinary.uploader.upload(
-                image,
-                public_id=title,  # Set the public ID to the title
-                folder='scalable/'  # Optional: Set a folder to organize the images
-            )
+            # Trigger the Celery task asynchronously
+            process_uploaded_file.delay(title, image)  # Pass the file path to the task
 
-            # Handle the Cloudinary response and redirect to the success page
-            if 'public_id' in uploaded_image:
-                return redirect('success')  # Replace 'success' with your success page URL
-
+            return render(request, 'success.html', context)
     else:
         form = GeeksForm()
 

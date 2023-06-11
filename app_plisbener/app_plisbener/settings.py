@@ -26,7 +26,8 @@ import cloudinary.uploader
 import cloudinary.api
 
 # Celery settings
-BROKER_URL = os.environ.get('RABBITMQ_URL', 'amqp://guest:guest@localhost:5672/')
+CELERY_WORKER_HOSTNAME = 'Momo'  # Replace with your desired hostname
+CELERY_BROKER_URL = os.environ.get('RABBITMQ_URL', 'amqp://guest:guest@localhost:5672/')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
